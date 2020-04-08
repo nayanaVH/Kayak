@@ -15,66 +15,75 @@ import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
 public class HomePageStepDefination extends TestBase{
-	
+
 	HomePage  homepage =new HomePage();
-	
-	 
-	
+
+
+
 	@Given("^user is on Kayak Search page$")
 	public void user_is_on_Kayak_Search_page() throws Throwable {
 		TestBase.intialisation();
+	}	
+
+	   @When("^user verify the pageTitle \"([^\"]*)\"$")
+	    public void user_verify_the_pageTitle(String expectedTitle) throws Throwable {
+		   String pageTitle=homepage.verifyHomePageTitle();
+			
+		  }
+	   
+	   @When("^user Uncheck the default Selection$")
+	   public void user_Uncheck_the_default_Selection() throws Throwable {
+		 
+		   homepage.selectfrom();
+	   }
+
+	   @Then("^user enters  From Location \"([^\"]*)\"$")
+	   public void user_enters_From_Location(String fromairport) throws Throwable {
+		   
+		   System.out.println("From Airport"+fromairport);
+		   homepage.EnterfromAirtport(fromairport);
+	       
+	   }
+
+	   @Then("^user enters To Location \"([^\"]*)\"$")
+	   public void user_enters_To_Location(String toAirport) throws Throwable {
+		   homepage.EntertoAirtport(toAirport);
+	      
+	   }
+
+	   @Then("^User Select the Arrival Date \"([^\"]*)\"$")
+	   public void user_Select_the_Arrival_Date(String arg1) throws Throwable {
+	       // Write code here that turns the phrase above into concrete actions
+	      
+	   }
+
+	   @Then("^User Select the DepartureDate  \"([^\"]*)\"$")
+	   public void user_Select_the_DepartureDate(String arg1) throws Throwable {
+	       // Write code here that turns the phrase above into concrete actions
+	      
+	   }
+
+		@Then("^user clicks Search Icon$")
+		public void user_clicks_Search_Icon() throws Throwable {
+		    
+		}
+
+		@Then("^user select the search result$")
+		public void user_select_the_search_result() throws Throwable {
+		    
+		}
+
+		@Then("^close the Browser$")
+		public void close_the_Browser() throws Throwable {
+		    
+		}
+
+
 		
 		
-	}
-
-   @When("^user verify the pageTitle \"([^\"]*)\"$")
-    public void user_verify_the_pageTitle(String expectedTitle) throws Throwable {
-	   String pageTitle=homepage.verifyHomePageTitle();
-		/*
-		 * System.out.println(pageTitle); Assert.assertEquals(expectedTitle, pageTitle);
-		 * WebElement arriveClick=driver.findElement(By.
-		 * xpath("//div[@class='js-selection-display _id7 _ii0 _iir _iQe _kaM _ic2 _ic3']"
-		 * )); Actions action=new Actions(driver);
-		 * action.moveToElement(arriveClick).build().perform();
-		 * //arrivalSearchBox.click(); WebElement cancel=driver.findElement(By.
-		 * xpath("//div[@class='_iac _irF _Hk _h-8']/button")); JavascriptExecutor js=
-		 * ((JavascriptExecutor)driver);
-		 * js.executeScript("arguments[0].click();",cancel); WebElement
-		 * from=driver.findElement(By.xpath("//div[@class='_ia1 _h-8 _itL']/input"));
-		 * from.sendKeys("Paris"); from.sendKeys(Keys.ENTER);
-		 */
-	  }
-   
-   @Then("^user click on arrivalBox and uncheck the check box$")
-   public void user_click_on_arrivalBox_and_uncheck_the_check_box()throws Throwable { 
-	   
-	   homepage.arrivalForm();		
-   }
-
-	@Then("^user enters  Search details \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void user_enters_Search_details_and_and_and(String arg1, String arg2, String arg3, String arg4) throws Throwable {
-	    
-	   
-	}
-
-	@Then("^user clicks Search Icon$")
-	public void user_clicks_Search_Icon() throws Throwable {
-	    
-	}
-
-	@Then("^user select the search result$")
-	public void user_select_the_search_result() throws Throwable {
-	    
-	}
-
-	@Then("^close the Browser$")
-	public void close_the_Browser() throws Throwable {
-	    
-	}
 
 
-	
-	
-	
-    
+
+
+
 }
